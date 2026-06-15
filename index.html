@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Víctor Martín Centro — Bienestar Integral en Vigo</title>
+  <meta name="description" content="El único centro en Vigo que integra masajes terapéuticos, acupuntura, psicoterapia y kinesiología. 30€/sesión. Reserva por WhatsApp." />
+  <meta property="og:title" content="Víctor Martín Centro — Bienestar Integral en Vigo" />
+  <meta property="og:description" content="Cuerpo, energía y mente en un mismo espacio. Masajes, acupuntura, psicoterapia, kinesiología. 30€/hora." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://victormartincentro.com" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #1e1e1e;
+      --bg-warm:   #242420;
+      --cream:     #e8ddd4;
+      --cream-dim: #b8afa8;
+      --gold:      #c4a882;
+      --border:    rgba(232,221,212,0.12);
+      --ff-serif:  'Cormorant Garamond', Georgia, serif;
+      --ff-sans:   'Raleway', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 4rem;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(30,30,30,0.92);
+      backdrop-filter: blur(12px);
+      padding: 1rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--cream);
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .nav-cta:hover { background: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle radial glow behind monogram */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -52%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(196,168,130,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* VM Monogram */
+    .monogram {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 1.5px solid var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 3rem;
+      position: relative;
+      animation: fadeUp 1s ease both;
+    }
+    .monogram svg { width: 60px; height: 40px; }
+
+    .hero-label {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1s 0.15s ease both;
+    }
+
+    .hero-headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      animation: fadeUp 1s 0.25s ease both;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--cream-dim);
+      max-width: 420px;
+      margin: 0 auto 3rem;
+      animation: fadeUp 1s 0.35s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.45s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--cream);
+      color: var(--bg);
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-ghost:hover { border-color: var(--cream); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+    .hero-scroll span {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ─── SEPARATOR ─── */
+    .sep {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .sep-line { flex: 1; height: 1px; background: var(--border); }
+    .sep-icon { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.3em; white-space: nowrap; }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 7rem 2rem; }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── GAP SECTION ─── */
+    #gap {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    #gap .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .gap-copy { }
+    .gap-copy p {
+      color: var(--cream-dim);
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+    .gap-copy .pull-quote {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.4;
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+    }
+    .pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .pillar {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .pillar:hover { border-color: rgba(196,168,130,0.35); }
+    .pillar-num {
+      font-family: var(--ff-serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(196,168,130,0.15);
+      position: absolute;
+      top: 0.5rem; right: 1rem;
+      line-height: 1;
+    }
+    .pillar-title {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      color: var(--cream);
+    }
+    .pillar-desc {
+      font-size: 0.8rem;
+      color: var(--cream-dim);
+      line-height: 1.6;
+    }
+
+    /* ─── SERVICES ─── */
+    #servicios { max-width: 900px; margin: 0 auto; }
+    #servicios .header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .price-badge {
+      font-family: var(--ff-serif);
+      font-size: 0.9rem;
+      color: var(--cream-dim);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    .price-badge strong {
+      font-size: 1.4rem;
+      color: var(--cream);
+      font-weight: 300;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .service-item {
+      background: var(--bg);
+      padding: 2rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .service-item:hover { background: rgba(196,168,130,0.04); }
+    .service-name {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .service-sub {
+      font-size: 0.75rem;
+      color: var(--cream-dim);
+      letter-spacing: 0.05em;
+    }
+    .service-price {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .services-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--cream-dim);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── SOBRE VÍCTOR ─── */
+    #victor {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    #victor .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .victor-img {
+      position: relative;
+    }
+    .victor-img-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #2a2820;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--cream-dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .victor-img-frame svg {
+      width: 48px; height: 48px;
+      opacity: 0.3;
+    }
+    .victor-img::after {
+      content: '';
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border: 1px solid rgba(196,168,130,0.2);
+      pointer-events: none;
+    }
+    .victor-copy { padding-top: 0.5rem; }
+    .victor-copy p {
+      color: var(--cream-dim);
+      font-size: 0.88rem;
+      margin-bottom: 1.1rem;
+      line-height: 1.8;
+    }
+    .victor-copy .highlight {
+      font-family: var(--ff-serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+    .credential {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--cream-dim);
+    }
+    .credential::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ─── TESTIMONIOS ─── */
+    #testimonios { max-width: 1100px; margin: 0 auto; }
+    #testimonios .header { margin-bottom: 3.5rem; }
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testimonio {
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .testimonio:hover { border-color: rgba(196,168,130,0.3); }
+    .testimonio-quote {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .testimonio-quote::before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.4;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      font-family: var(--ff-serif);
+    }
+    .testimonio-author {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .testimonio-detail {
+      font-size: 0.7rem;
+      color: var(--cream-dim);
+      margin-top: 0.2rem;
+    }
+    .testimonio-result {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--cream-dim);
+      letter-spacing: 0.05em;
+    }
+    .testimonio-result strong { color: var(--gold); }
+
+    /* ─── CTA SECTION ─── */
+    #cta-final {
+      text-align: center;
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+    }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    #cta-final .section-title { font-size: clamp(2rem, 4vw, 3rem); }
+    #cta-final p {
+      color: var(--cream-dim);
+      font-size: 0.88rem;
+      margin-bottom: 2.5rem;
+    }
+    .cta-note {
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
+      color: var(--cream-dim);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--ff-serif);
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .footer-links a {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy {
+      font-size: 0.68rem;
+      color: var(--cream-dim);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── FLOATING WA BUTTON ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 200;
+      background: #25d366;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+    .wa-float svg { width: 28px; height: 28px; }
+
+    /* ─── REVEAL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* ─── KEYFRAMES ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.1); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.9rem 1.5rem; }
+      #gap .inner, #victor .inner { grid-template-columns: 1fr; gap: 3rem; }
+      .victor-img::after { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonios-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 5rem 1.5rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">Víctor Martín Centro</a>
+    <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="nav-cta">Reservar cita</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <!-- VM Monogram -->
+    <div class="monogram">
+      <svg viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 4 L14 36 L22 14 L30 36 L38 4" stroke="#e8ddd4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M40 4 L40 36 M40 4 L52 22 L58 4" stroke="#e8ddd4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+
+    <p class="hero-label">Centro de Bienestar Integral · Vigo</p>
+
+    <h1 class="hero-headline">
+      El único lugar en Vigo donde<br />
+      <em>cuerpo, energía y mente</em><br />
+      se tratan juntos
+    </h1>
+
+    <p class="hero-sub">
+      Masajes terapéuticos, acupuntura, psicoterapia y kinesiología.<br />
+      Un solo terapeuta. Una visión integral. 30&nbsp;€/sesión.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Reservar por WhatsApp
+      </a>
+      <a href="#servicios" class="btn-ghost">Ver servicios ↓</a>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Descubrir</span>
+    </div>
+  </section>
+
+  <!-- GAP SECTION -->
+  <section id="gap">
+    <div class="inner">
+      <div class="gap-copy">
+        <p class="section-label reveal">Por qué Víctor Martín Centro</p>
+        <h2 class="section-title reveal reveal-d1">
+          En Vigo hay centros de masajes.<br />
+          Hay centros de yoga.<br />
+          Hay psicólogos.
+        </h2>
+        <blockquote class="pull-quote reveal reveal-d2">
+          Ninguno trabaja las tres dimensiones a la vez. Aquí sí.
+        </blockquote>
+        <p class="reveal reveal-d3">
+          El malestar físico tiene raíces energéticas. El bloqueo emocional se manifiesta en el cuerpo.
+          La ansiedad no desaparece solo con relajación muscular. Víctor trabaja con los tres niveles
+          porque la persona es una sola.
+        </p>
+        <p class="reveal reveal-d3">
+          Cada sesión parte de una escucha real y llega donde hace falta llegar.
+        </p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <span class="pillar-num">01</span>
+          <p class="pillar-title">Cuerpo</p>
+          <p class="pillar-desc">Masajes terapéuticos, reflexología podal y kinesiología para liberar tensión acumulada y restablecer el equilibrio físico.</p>
+        </div>
+        <div class="pillar reveal reveal-d1">
+          <span class="pillar-num">02</span>
+          <p class="pillar-title">Energía</p>
+          <p class="pillar-desc">Acupuntura, cráneo puntura y acupuntura zonal para regular los flujos energéticos del organismo y activar la capacidad de autocuración.</p>
+        </div>
+        <div class="pillar reveal reveal-d2">
+          <span class="pillar-num">03</span>
+          <p class="pillar-title">Mente</p>
+          <p class="pillar-desc">Psicoterapia profesional para trabajar los patrones mentales y emocionales que sostienen el malestar. No es solo hablar; es transformar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section>
+    <div id="servicios">
+      <div class="header">
+        <div>
+          <p class="section-label reveal">Servicios</p>
+          <h2 class="section-title reveal reveal-d1">Lo que ofrezco</h2>
+        </div>
+        <div class="price-badge reveal reveal-d2">
+          Todas las sesiones <strong>30 €</strong> / hora
+        </div>
+      </div>
+
+      <div class="services-grid reveal">
+        <div class="service-item">
+          <div>
+            <p class="service-name">Masajes terapéuticos</p>
+            <p class="service-sub">Relajante · Descontracturante · Deportivo</p>
+          </div>
+          <span class="service-price">30 €</span>
+        </div>
+        <div class="service-item">
+          <div>
+            <p class="service-name">Acupuntura</p>
+            <p class="service-sub">Regulación energética y sistémica</p>
+          </div>
+          <span class="service-price">30 €</span>
+        </div>
+        <div class="service-item">
+          <div>
+            <p class="service-name">Cráneo puntura</p>
+            <p class="service-sub">Estimulación de zonas craneales terapéuticas</p>
+          </div>
+          <span class="service-price">30 €</span>
+        </div>
+        <div class="service-item">
+          <div>
+            <p class="service-name">Acupuntura zonal</p>
+            <p class="service-sub">Tratamiento por zonas reflejas específicas</p>
+          </div>
+          <span class="service-price">30 €</span>
+        </div>
+        <div class="service-item">
+          <div>
+            <p class="service-name">Psicoterapia</p>
+            <p class="service-sub">Ansiedad · Estrés · Bloqueos emocionales</p>
+          </div>
+          <span class="service-price">30 €</span>
+        </div>
+        <div class="service-item">
+          <div>
+            <p class="service-name">Kinesiología</p>
+            <p class="service-sub">Diagnóstico y reequilibrio muscle-response</p>
+          </div>
+          <span class="service-price">30 €</span>
+        </div>
+        <div class="service-item">
+          <div>
+            <p class="service-name">Reflexología podal</p>
+            <p class="service-sub">Zonas reflejas del pie · Órganos y sistemas</p>
+          </div>
+          <span class="service-price">30 €</span>
+        </div>
+        <div class="service-item" style="background:rgba(196,168,130,0.04); cursor:default;">
+          <div>
+            <p class="service-name" style="font-style:italic;color:var(--cream-dim);">¿No sabes por dónde empezar?</p>
+            <p class="service-sub">Primera consulta orientativa gratuita</p>
+          </div>
+          <span class="service-price" style="color:var(--cream-dim);">Gratis</span>
+        </div>
+      </div>
+
+      <p class="services-note reveal">
+        Sesiones individuales · Sin suscripción · Sin permanencia · Horario flexible
+      </p>
+
+      <div style="text-align:center;margin-top:3rem;" class="reveal">
+        <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="btn-primary">Reservar sesión por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep">
+    <div class="sep-line"></div>
+    <span class="sep-icon">✦</span>
+    <div class="sep-line"></div>
+  </div>
+
+  <!-- SOBRE VÍCTOR -->
+  <section id="victor">
+    <div class="inner">
+      <div class="victor-img reveal">
+        <div class="victor-img-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Foto de Víctor<br />próximamente</span>
+        </div>
+      </div>
+      <div class="victor-copy">
+        <p class="section-label reveal">El terapeuta</p>
+        <h2 class="section-title reveal reveal-d1">Víctor Martín</h2>
+        <p class="highlight reveal reveal-d2">
+          "Llevo años acompañando a personas que sienten que algo no encaja — en el cuerpo, en la mente o en ambos. Mi trabajo es escuchar antes de actuar, y actuar donde realmente hace falta."
+        </p>
+        <p class="reveal reveal-d2">
+          [Texto biográfico de Víctor pendiente — formación, años de experiencia, filosofía de trabajo, por qué decidió integrar estas disciplinas.]
+        </p>
+        <p class="reveal reveal-d2">
+          Placeholder: experiencia en masajes terapéuticos, formación en acupuntura y medicina tradicional china, estudios de psicoterapia. Trabajo con personas de todas las edades que buscan bienestar real, no solo alivio momentáneo.
+        </p>
+        <div class="credentials reveal reveal-d3">
+          <div class="credential">Formación en Acupuntura Tradicional China — [Escuela/Universidad]</div>
+          <div class="credential">Psicoterapia — [Formación y colegiación]</div>
+          <div class="credential">Kinesiología Aplicada — [Formación]</div>
+          <div class="credential">+X años de práctica clínica en Vigo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section>
+    <div id="testimonios">
+      <div class="header">
+        <p class="section-label reveal">Testimonios</p>
+        <h2 class="section-title reveal reveal-d1">Lo que dicen quienes ya vinieron</h2>
+      </div>
+      <div class="testimonios-grid">
+        <div class="testimonio reveal">
+          <p class="testimonio-quote">
+            Llevaba tres años con contracturas que reaparecían cada mes. Víctor identificó en la primera sesión que había algo más que tensión muscular. En seis semanas dejé de necesitar el ibuprofeno.
+          </p>
+          <p class="testimonio-author">María G.</p>
+          <p class="testimonio-detail">Vigo · Masaje + Kinesiología</p>
+          <p class="testimonio-result"><strong>Resultado:</strong> Sin contracturas recurrentes · 6 semanas de seguimiento</p>
+        </div>
+        <div class="testimonio reveal reveal-d1">
+          <p class="testimonio-quote">
+            Vine a buscar alivio para la ansiedad. No esperaba que el trabajo corporal fuera parte del proceso. La combinación de psicoterapia y acupuntura fue lo que realmente movió algo en mí.
+          </p>
+          <p class="testimonio-author">Carlos P.</p>
+          <p class="testimonio-detail">Vigo · Psicoterapia + Acupuntura</p>
+          <p class="testimonio-result"><strong>Resultado:</strong> Reducción significativa de la ansiedad · Mejor sueño</p>
+        </div>
+        <div class="testimonio reveal reveal-d2">
+          <p class="testimonio-quote">
+            Buscaba algo diferente a los spas habituales. Aquí no hay velas aromáticas ni música de fondo: hay alguien que te escucha, entiende tu caso y trabaja con intención real.
+          </p>
+          <p class="testimonio-author">Laura M.</p>
+          <p class="testimonio-detail">Vigo · Reflexología + Masaje</p>
+          <p class="testimonio-result"><strong>Resultado:</strong> Mejora en circulación y descanso · Cliente habitual</p>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:2rem;font-size:0.72rem;color:var(--cream-dim);letter-spacing:0.08em;" class="reveal">
+        [Testimonios reales de pacientes pendientes de recopilación · Placeholders de ejemplo]
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <div class="cta-inner">
+      <p class="section-label reveal">Primer paso</p>
+      <h2 class="section-title reveal reveal-d1">
+        La primera conversación<br />
+        <em style="font-style:italic;color:var(--gold);">es gratuita</em>
+      </h2>
+      <p class="reveal reveal-d2">
+        Cuéntame qué está pasando. Sin compromiso. Sin prisa.<br />
+        Te digo honestamente si puedo ayudarte y cómo.
+      </p>
+      <div class="reveal reveal-d3">
+        <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.8rem;padding:1.1rem 2.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Escribir a Víctor por WhatsApp
+        </a>
+      </div>
+      <p class="cta-note reveal reveal-d4">
+        +34 685 106 677 &nbsp;·&nbsp; Vigo, Galicia &nbsp;·&nbsp; victormartincentro.com
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Víctor Martín Centro</div>
+    <nav class="footer-links">
+      <a href="#gap">El centro</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#victor">Víctor</a>
+      <a href="#testimonios">Testimonios</a>
+    </nav>
+    <span class="footer-copy">© 2026 · Vigo · Todos los derechos reservados</span>
+  </footer>
+
+  <!-- FLOATING WA BUTTON -->
+  <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
