@@ -150,7 +150,7 @@
 
     /* Logo */
     .monogram {
-      width: 190px; height: 190px;
+      width: 220px; height: 220px;
       border-radius: 50%;
       overflow: hidden;
       display: flex;
@@ -162,10 +162,11 @@
       animation: fadeUp 1s ease both;
     }
     .monogram img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
       display: block;
+      image-rendering: crisp-edges;
     }
 
     .hero-label {
@@ -256,7 +257,12 @@
     .btn-ghost:hover { border-color: var(--cream); }
 
     .hero-ctas .btn-primary,
-    .hero-ctas .btn-ghost { min-width: 230px; }
+    .hero-ctas .btn-ghost {
+      min-width: 230px;
+      font-size: 0.75rem;
+      padding: 1rem 2rem;
+      line-height: 1.4;
+    }
 
     .hero-scroll {
       position: absolute;
@@ -317,13 +323,13 @@
       margin-bottom: 1.5rem;
     }
 
-    /* ─── GAP SECTION ─── */
-    #gap {
+    /* ─── CENTRO SECTION ─── */
+    #centro {
       background: var(--bg-warm);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-    #gap .inner {
+    #centro .inner {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
@@ -800,16 +806,11 @@
 
   <!-- NAV -->
   <nav id="main-nav">
-    <div class="nav-left">
-      <a href="#hero" class="nav-logo">
-        <img src="logo.jpeg" alt="Víctor Martín Centro" />
-      </a>
-      <div class="nav-links">
-        <a href="#gap">El Centro</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#victor">Víctor</a>
-        <a href="#testimonios">Testimonios</a>
-      </div>
+    <div class="nav-links">
+      <a href="#centro">El Centro</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#victor">Víctor</a>
+      <a href="#testimonios">Testimonios</a>
     </div>
     <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="nav-cta">Reservar cita</a>
   </nav>
@@ -817,7 +818,7 @@
   <!-- HERO -->
   <section id="hero">
     <div class="monogram">
-      <img src="logo.jpeg" alt="Víctor Martín Centro" />
+      <img src="logo.png" alt="Víctor Martín Centro" width="220" height="220" />
     </div>
 
     <p class="hero-label">Centro de Bienestar Integral · Vigo</p>
@@ -847,8 +848,8 @@
     </div>
   </section>
 
-  <!-- GAP SECTION -->
-  <section id="gap">
+  <!-- CENTRO SECTION -->
+  <section id="centro">
     <div class="inner">
       <div class="gap-copy">
         <h3 class="section-label reveal">Por qué Víctor Martín Centro</h3>
@@ -1061,7 +1062,7 @@
     <div class="footer-top">
       <div class="footer-logo">Víctor Martín Centro</div>
       <nav class="footer-links">
-        <a href="#gap">El centro</a>
+        <a href="#centro">El centro</a>
         <a href="#servicios">Servicios</a>
         <a href="#victor">Víctor</a>
         <a href="#testimonios">Testimonios</a>
