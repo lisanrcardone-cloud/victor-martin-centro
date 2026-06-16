@@ -11,12 +11,16 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://victormartincentro.com" />
   <title>Víctor Martín Centro — Bienestar Integral en Vigo</title>
-  <meta name="description" content="El único centro en Vigo que integra masajes terapéuticos, acupuntura, psicoterapia y kinesiología. 30€/sesión. Reserva por WhatsApp." />
+  <meta name="description" content="El único centro en Vigo que integra masajes terapéuticos, masaje visceral, acupuntura, psicoterapia y kinesiología. 30€/sesión. Reserva por WhatsApp." />
   <meta property="og:title" content="Víctor Martín Centro — Bienestar Integral en Vigo" />
-  <meta property="og:description" content="Cuerpo, energía y mente en un mismo espacio. Masajes, acupuntura, psicoterapia, kinesiología. 30€/hora." />
+  <meta property="og:description" content="Cuerpo, energía y psique en un mismo espacio. Masajes, masaje visceral, acupuntura, psicoterapia, kinesiología. 30€/sesión." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://victormartincentro.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Víctor Martín Centro — Bienestar Integral en Vigo" />
+  <meta name="twitter:description" content="El único centro en Vigo que integra masajes terapéuticos, acupuntura, psicoterapia y kinesiología. 30€/sesión." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -84,7 +88,7 @@
     }
     .nav-cta {
       font-family: var(--ff-sans);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -109,7 +113,6 @@
       overflow: hidden;
     }
 
-    /* Subtle radial glow behind monogram */
     #hero::after {
       content: '';
       position: absolute;
@@ -118,31 +121,40 @@
       width: 600px; height: 600px;
       background: radial-gradient(ellipse, rgba(196,168,130,0.07) 0%, transparent 70%);
       pointer-events: none;
+      z-index: 0;
     }
 
-    /* VM Monogram */
+    /* Logo */
     .monogram {
       width: 120px; height: 120px;
       border-radius: 50%;
-      border: 1.5px solid var(--cream);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 3rem;
       position: relative;
+      z-index: 1;
       animation: fadeUp 1s ease both;
     }
-    .monogram svg { width: 60px; height: 40px; }
+    .monogram img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     .hero-label {
       font-family: var(--ff-sans);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 1.5rem;
       animation: fadeUp 1s 0.15s ease both;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-headline {
@@ -154,6 +166,8 @@
       max-width: 800px;
       margin: 0 auto 1.5rem;
       animation: fadeUp 1s 0.25s ease both;
+      position: relative;
+      z-index: 1;
     }
     .hero-headline em {
       font-style: italic;
@@ -164,9 +178,11 @@
       font-size: 0.85rem;
       letter-spacing: 0.08em;
       color: var(--cream-dim);
-      max-width: 420px;
+      max-width: 460px;
       margin: 0 auto 3rem;
       animation: fadeUp 1s 0.35s ease both;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-ctas {
@@ -175,6 +191,8 @@
       justify-content: center;
       flex-wrap: wrap;
       animation: fadeUp 1s 0.45s ease both;
+      position: relative;
+      z-index: 1;
     }
 
     .btn-primary {
@@ -184,7 +202,7 @@
       background: var(--cream);
       color: var(--bg);
       font-family: var(--ff-sans);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -201,7 +219,7 @@
       border: 1px solid var(--border);
       color: var(--cream);
       font-family: var(--ff-sans);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -221,9 +239,10 @@
       align-items: center;
       gap: 0.5rem;
       animation: fadeUp 1s 0.6s ease both;
+      z-index: 1;
     }
     .hero-scroll span {
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--cream-dim);
@@ -245,18 +264,20 @@
       padding: 0 2rem;
     }
     .sep-line { flex: 1; height: 1px; background: var(--border); }
-    .sep-icon { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.3em; white-space: nowrap; }
+    .sep-icon { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.3em; white-space: nowrap; }
 
     /* ─── SECTIONS ─── */
     section { padding: 7rem 2rem; }
 
     .section-label {
-      font-size: 0.62rem;
+      font-size: 0.75rem;
       font-weight: 500;
+      font-family: var(--ff-sans);
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 1rem;
+      margin-top: 0;
     }
 
     .section-title {
@@ -281,7 +302,6 @@
       gap: 5rem;
       align-items: center;
     }
-    .gap-copy { }
     .gap-copy p {
       color: var(--cream-dim);
       font-size: 0.9rem;
@@ -319,6 +339,7 @@
       position: absolute;
       top: 0.5rem; right: 1rem;
       line-height: 1;
+      pointer-events: none;
     }
     .pillar-title {
       font-family: var(--ff-serif);
@@ -367,11 +388,11 @@
       background: var(--bg);
       padding: 2rem 1.8rem;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
+      flex-direction: column;
+      gap: 0.2rem;
       transition: background 0.3s;
       cursor: default;
+      position: relative;
     }
     .service-item:hover { background: rgba(196,168,130,0.04); }
     .service-name {
@@ -386,12 +407,46 @@
       color: var(--cream-dim);
       letter-spacing: 0.05em;
     }
-    .service-price {
-      font-family: var(--ff-serif);
-      font-size: 1.1rem;
-      font-weight: 300;
+    /* Featured service — masaje visceral */
+    .service-featured {
+      background: rgba(196,168,130,0.04) !important;
+    }
+    .service-featured::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+    }
+    .service-featured .service-name {
       color: var(--gold);
-      white-space: nowrap;
+    }
+    .service-exclusive {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(196,168,130,0.35);
+      padding: 0.2rem 0.55rem;
+      margin-top: 0.5rem;
+      font-family: var(--ff-sans);
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .combo-note {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--cream-dim);
+      letter-spacing: 0.03em;
+      line-height: 1.7;
+    }
+    .combo-note strong {
+      color: var(--cream);
+      font-weight: 500;
     }
 
     .services-note {
@@ -416,9 +471,7 @@
       gap: 5rem;
       align-items: start;
     }
-    .victor-img {
-      position: relative;
-    }
+    .victor-img { position: relative; }
     .victor-img-frame {
       width: 100%;
       aspect-ratio: 3/4;
@@ -430,15 +483,12 @@
       justify-content: center;
       gap: 1rem;
       color: var(--cream-dim);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-align: center;
       text-transform: uppercase;
     }
-    .victor-img-frame svg {
-      width: 48px; height: 48px;
-      opacity: 0.3;
-    }
+    .victor-img-frame svg { width: 48px; height: 48px; opacity: 0.3; }
     .victor-img::after {
       content: '';
       position: absolute;
@@ -489,7 +539,7 @@
     #testimonios .header { margin-bottom: 3.5rem; }
     .testimonios-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
     }
     .testimonio {
@@ -499,6 +549,13 @@
       transition: border-color 0.3s;
     }
     .testimonio:hover { border-color: rgba(196,168,130,0.3); }
+    .testimonio-stars {
+      display: block;
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
     .testimonio-quote {
       font-family: var(--ff-serif);
       font-size: 1rem;
@@ -509,7 +566,7 @@
       margin-bottom: 1.5rem;
     }
     .testimonio-quote::before {
-      content: '"';
+      content: '\201C';
       font-size: 3rem;
       color: var(--gold);
       opacity: 0.4;
@@ -519,25 +576,16 @@
       font-family: var(--ff-serif);
     }
     .testimonio-author {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--gold);
     }
     .testimonio-detail {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--cream-dim);
       margin-top: 0.2rem;
     }
-    .testimonio-result {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.72rem;
-      color: var(--cream-dim);
-      letter-spacing: 0.05em;
-    }
-    .testimonio-result strong { color: var(--gold); }
 
     /* ─── CTA SECTION ─── */
     #cta-final {
@@ -554,7 +602,7 @@
     }
     .cta-note {
       margin-top: 1.5rem;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       color: var(--cream-dim);
       letter-spacing: 0.08em;
     }
@@ -565,6 +613,11 @@
       padding: 2.5rem 2rem;
       max-width: 1100px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .footer-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -577,12 +630,9 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
     }
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
+    .footer-links { display: flex; gap: 2rem; }
     .footer-links a {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--cream-dim);
@@ -590,8 +640,33 @@
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--cream); }
+    .footer-info {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .footer-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+      color: var(--cream-dim);
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+    }
+    .footer-info-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+      font-family: var(--ff-sans);
+    }
     .footer-copy {
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       color: var(--cream-dim);
       letter-spacing: 0.1em;
     }
@@ -643,15 +718,65 @@
       #gap .inner, #victor .inner { grid-template-columns: 1fr; gap: 3rem; }
       .victor-img::after { display: none; }
       .services-grid { grid-template-columns: 1fr; }
-      .testimonios-grid { grid-template-columns: 1fr; }
+      .footer-info { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       section { padding: 5rem 1.5rem; }
       .hero-ctas { flex-direction: column; align-items: center; }
-      footer { flex-direction: column; text-align: center; }
-      .footer-links { justify-content: center; }
+      .footer-top { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; flex-wrap: wrap; }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "Víctor Martín Centro",
+    "url": "https://victormartincentro.com",
+    "telephone": "+34685106677",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rúa Padre Seixas, 38, entresuelo",
+      "postalCode": "36209",
+      "addressLocality": "Vigo",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.2307,
+      "longitude": -8.7199
+    },
+    "openingHours": ["Tu-Fr 10:00-13:00", "Tu-Fr 17:00-20:00", "Sa 10:00-13:00"],
+    "priceRange": "30€",
+    "currenciesAccepted": "EUR",
+    "sameAs": ["https://www.instagram.com/victormartin_vigo/"],
+    "employee": {
+      "@type": "Person",
+      "name": "Víctor Martín",
+      "jobTitle": "Terapeuta de Bienestar Integral",
+      "description": "16 años de experiencia en terapias integrativas en Vigo",
+      "knowsAbout": ["masajes terapéuticos", "masaje visceral", "acupuntura", "cráneo puntura", "acupuntura zonal", "psicoterapia", "kinesiología", "reflexología podal"]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de bienestar integral",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Masaje visceral", "description": "Liberación de órganos y fascias abdominales"}, "price": "30", "priceCurrency": "EUR"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Masajes terapéuticos", "description": "Masaje relajante, descontracturante y deportivo"}, "price": "30", "priceCurrency": "EUR"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Acupuntura", "description": "Regulación energética y sistémica"}, "price": "30", "priceCurrency": "EUR"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cráneo puntura", "description": "Estimulación de zonas craneales terapéuticas"}, "price": "30", "priceCurrency": "EUR"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Acupuntura zonal", "description": "Tratamiento por zonas reflejas específicas"}, "price": "30", "priceCurrency": "EUR"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Psicoterapia", "description": "Ansiedad, estrés y bloqueos emocionales"}, "price": "30", "priceCurrency": "EUR"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kinesiología", "description": "Diagnóstico y reequilibrio muscle-response"}, "price": "30", "priceCurrency": "EUR"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Reflexología podal", "description": "Zonas reflejas del pie"}, "price": "30", "priceCurrency": "EUR"}
+      ]
+    },
+    "datePublished": "2026-06-16",
+    "dateModified": "2026-06-16"
+  }
+  </script>
 </head>
 <body>
 
@@ -663,24 +788,20 @@
 
   <!-- HERO -->
   <section id="hero">
-    <!-- VM Monogram -->
     <div class="monogram">
-      <svg viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 4 L14 36 L22 14 L30 36 L38 4" stroke="#e8ddd4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <path d="M40 4 L40 36 M40 4 L52 22 L58 4" stroke="#e8ddd4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </svg>
+      <img src="logo.jpeg" alt="Víctor Martín Centro" />
     </div>
 
     <p class="hero-label">Centro de Bienestar Integral · Vigo</p>
 
     <h1 class="hero-headline">
       El único lugar en Vigo donde<br />
-      <em>cuerpo, energía y mente</em><br />
+      <em>cuerpo, energía y psique</em><br />
       se tratan juntos
     </h1>
 
     <p class="hero-sub">
-      Masajes terapéuticos, acupuntura, psicoterapia y kinesiología.<br />
+      Masajes terapéuticos, masaje visceral, acupuntura, psicoterapia y kinesiología.<br />
       Un solo terapeuta. Una visión integral. 30&nbsp;€/sesión.
     </p>
 
@@ -702,7 +823,7 @@
   <section id="gap">
     <div class="inner">
       <div class="gap-copy">
-        <p class="section-label reveal">Por qué Víctor Martín Centro</p>
+        <h3 class="section-label reveal">Por qué Víctor Martín Centro</h3>
         <h2 class="section-title reveal reveal-d1">
           En Vigo hay centros de masajes.<br />
           Hay centros de yoga.<br />
@@ -724,7 +845,7 @@
         <div class="pillar reveal">
           <span class="pillar-num">01</span>
           <p class="pillar-title">Cuerpo</p>
-          <p class="pillar-desc">Masajes terapéuticos, reflexología podal y kinesiología para liberar tensión acumulada y restablecer el equilibrio físico.</p>
+          <p class="pillar-desc">Masajes terapéuticos, masaje visceral, reflexología podal y kinesiología para liberar tensión acumulada y restablecer el equilibrio físico.</p>
         </div>
         <div class="pillar reveal reveal-d1">
           <span class="pillar-num">02</span>
@@ -733,7 +854,7 @@
         </div>
         <div class="pillar reveal reveal-d2">
           <span class="pillar-num">03</span>
-          <p class="pillar-title">Mente</p>
+          <p class="pillar-title">Psique</p>
           <p class="pillar-desc">Psicoterapia profesional para trabajar los patrones mentales y emocionales que sostienen el malestar. No es solo hablar; es transformar.</p>
         </div>
       </div>
@@ -745,7 +866,7 @@
     <div id="servicios">
       <div class="header">
         <div>
-          <p class="section-label reveal">Servicios</p>
+          <h3 class="section-label reveal">Servicios</h3>
           <h2 class="section-title reveal reveal-d1">Lo que ofrezco</h2>
         </div>
         <div class="price-badge reveal reveal-d2">
@@ -754,62 +875,45 @@
       </div>
 
       <div class="services-grid reveal">
-        <div class="service-item">
-          <div>
-            <p class="service-name">Masajes terapéuticos</p>
-            <p class="service-sub">Relajante · Descontracturante · Deportivo</p>
-          </div>
-          <span class="service-price">30 €</span>
+        <div class="service-item service-featured">
+          <p class="service-name">Masaje visceral</p>
+          <p class="service-sub">Liberación de órganos y fascias abdominales</p>
+          <span class="service-exclusive">Único en Vigo</span>
         </div>
         <div class="service-item">
-          <div>
-            <p class="service-name">Acupuntura</p>
-            <p class="service-sub">Regulación energética y sistémica</p>
-          </div>
-          <span class="service-price">30 €</span>
+          <p class="service-name">Masajes terapéuticos</p>
+          <p class="service-sub">Relajante · Descontracturante · Deportivo</p>
         </div>
         <div class="service-item">
-          <div>
-            <p class="service-name">Cráneo puntura</p>
-            <p class="service-sub">Estimulación de zonas craneales terapéuticas</p>
-          </div>
-          <span class="service-price">30 €</span>
+          <p class="service-name">Acupuntura</p>
+          <p class="service-sub">Regulación energética y sistémica</p>
         </div>
         <div class="service-item">
-          <div>
-            <p class="service-name">Acupuntura zonal</p>
-            <p class="service-sub">Tratamiento por zonas reflejas específicas</p>
-          </div>
-          <span class="service-price">30 €</span>
+          <p class="service-name">Cráneo puntura</p>
+          <p class="service-sub">Estimulación de zonas craneales terapéuticas</p>
         </div>
         <div class="service-item">
-          <div>
-            <p class="service-name">Psicoterapia</p>
-            <p class="service-sub">Ansiedad · Estrés · Bloqueos emocionales</p>
-          </div>
-          <span class="service-price">30 €</span>
+          <p class="service-name">Acupuntura zonal</p>
+          <p class="service-sub">Tratamiento por zonas reflejas específicas</p>
         </div>
         <div class="service-item">
-          <div>
-            <p class="service-name">Kinesiología</p>
-            <p class="service-sub">Diagnóstico y reequilibrio muscle-response</p>
-          </div>
-          <span class="service-price">30 €</span>
+          <p class="service-name">Psicoterapia</p>
+          <p class="service-sub">Ansiedad · Estrés · Bloqueos emocionales</p>
         </div>
         <div class="service-item">
-          <div>
-            <p class="service-name">Reflexología podal</p>
-            <p class="service-sub">Zonas reflejas del pie · Órganos y sistemas</p>
-          </div>
-          <span class="service-price">30 €</span>
+          <p class="service-name">Kinesiología</p>
+          <p class="service-sub">Diagnóstico y reequilibrio muscle-response</p>
         </div>
-        <div class="service-item" style="background:rgba(196,168,130,0.04); cursor:default;">
-          <div>
-            <p class="service-name" style="font-style:italic;color:var(--cream-dim);">¿No sabes por dónde empezar?</p>
-            <p class="service-sub">Primera consulta orientativa gratuita</p>
-          </div>
-          <span class="service-price" style="color:var(--cream-dim);">Gratis</span>
+        <div class="service-item">
+          <p class="service-name">Reflexología podal</p>
+          <p class="service-sub">Zonas reflejas del pie · Órganos y sistemas</p>
         </div>
+      </div>
+
+      <div class="combo-note reveal">
+        <strong>Las especialidades se pueden combinar en una misma sesión.</strong>
+        Por ejemplo: masaje visceral + acupuntura, o psicoterapia + reflexología podal.
+        Víctor adapta cada sesión a lo que el cuerpo y la psique necesiten ese día.
       </div>
 
       <p class="services-note reveal">
@@ -840,22 +944,22 @@
         </div>
       </div>
       <div class="victor-copy">
-        <p class="section-label reveal">El terapeuta</p>
+        <h3 class="section-label reveal">El terapeuta</h3>
         <h2 class="section-title reveal reveal-d1">Víctor Martín</h2>
         <p class="highlight reveal reveal-d2">
-          "Llevo años acompañando a personas que sienten que algo no encaja — en el cuerpo, en la mente o en ambos. Mi trabajo es escuchar antes de actuar, y actuar donde realmente hace falta."
+          "Llevo 16 años acompañando a personas que sienten que algo no encaja — en el cuerpo, en la psique o en ambos. Mi trabajo es escuchar antes de actuar, y actuar donde realmente hace falta."
         </p>
         <p class="reveal reveal-d2">
-          [Texto biográfico de Víctor pendiente — formación, años de experiencia, filosofía de trabajo, por qué decidió integrar estas disciplinas.]
+          Con 16 años de práctica clínica en Vigo, trabaja con personas de todas las edades que buscan bienestar real, no solo alivio momentáneo. Su enfoque integra masajes terapéuticos, masaje visceral, acupuntura y medicina tradicional china, junto a psicoterapia y kinesiología.
         </p>
         <p class="reveal reveal-d2">
-          Placeholder: experiencia en masajes terapéuticos, formación en acupuntura y medicina tradicional china, estudios de psicoterapia. Trabajo con personas de todas las edades que buscan bienestar real, no solo alivio momentáneo.
+          [Texto biográfico completo de Víctor pendiente — formación, filosofía de trabajo, por qué decidió integrar estas disciplinas.]
         </p>
         <div class="credentials reveal reveal-d3">
           <div class="credential">Formación en Acupuntura Tradicional China — [Escuela/Universidad]</div>
           <div class="credential">Psicoterapia — [Formación y colegiación]</div>
           <div class="credential">Kinesiología Aplicada — [Formación]</div>
-          <div class="credential">+X años de práctica clínica en Vigo</div>
+          <div class="credential">16 años de práctica clínica en Vigo</div>
         </div>
       </div>
     </div>
@@ -865,51 +969,56 @@
   <section>
     <div id="testimonios">
       <div class="header">
-        <p class="section-label reveal">Testimonios</p>
+        <h3 class="section-label reveal">Testimonios</h3>
         <h2 class="section-title reveal reveal-d1">Lo que dicen quienes ya vinieron</h2>
       </div>
       <div class="testimonios-grid">
         <div class="testimonio reveal">
+          <span class="testimonio-stars">★★★★★</span>
           <p class="testimonio-quote">
-            Llevaba tres años con contracturas que reaparecían cada mes. Víctor identificó en la primera sesión que había algo más que tensión muscular. En seis semanas dejé de necesitar el ibuprofeno.
+            Victor es increíble. Me fui súper relajada y con una sensación que no sabría cómo describir. Tiene unas manos de oro y además es súper amable y simpático, te sientes como en casa. Recomendable al 100%.
           </p>
-          <p class="testimonio-author">María G.</p>
-          <p class="testimonio-detail">Vigo · Masaje + Kinesiología</p>
-          <p class="testimonio-result"><strong>Resultado:</strong> Sin contracturas recurrentes · 6 semanas de seguimiento</p>
+          <p class="testimonio-author">Adama F.</p>
+          <p class="testimonio-detail">Vigo · Bienestar integral</p>
         </div>
         <div class="testimonio reveal reveal-d1">
+          <span class="testimonio-stars">★★★★★</span>
           <p class="testimonio-quote">
-            Vine a buscar alivio para la ansiedad. No esperaba que el trabajo corporal fuera parte del proceso. La combinación de psicoterapia y acupuntura fue lo que realmente movió algo en mí.
+            Fui por unos dolores de espalda y ciática. Solo con una sesión no tuve más dolores, y ya pasó una semana desde que lo hice. Es muy bueno. Lo recomiendo 100%.
           </p>
-          <p class="testimonio-author">Carlos P.</p>
-          <p class="testimonio-detail">Vigo · Psicoterapia + Acupuntura</p>
-          <p class="testimonio-result"><strong>Resultado:</strong> Reducción significativa de la ansiedad · Mejor sueño</p>
+          <p class="testimonio-author">Jose M.</p>
+          <p class="testimonio-detail">Vigo · Masaje terapéutico</p>
         </div>
         <div class="testimonio reveal reveal-d2">
+          <span class="testimonio-stars">★★★★★</span>
           <p class="testimonio-quote">
-            Buscaba algo diferente a los spas habituales. Aquí no hay velas aromáticas ni música de fondo: hay alguien que te escucha, entiende tu caso y trabaja con intención real.
+            Acudí por un problema mandibular y desde el primer momento dejé de sentir el dolor y presión que llevaba sintiendo las últimas semanas. También aprovechó para echarme un vistazo a la espalda y el hombro, y me alivió un montón. Muy atento — volveré.
           </p>
-          <p class="testimonio-author">Laura M.</p>
-          <p class="testimonio-detail">Vigo · Reflexología + Masaje</p>
-          <p class="testimonio-result"><strong>Resultado:</strong> Mejora en circulación y descanso · Cliente habitual</p>
+          <p class="testimonio-author">Sara C.</p>
+          <p class="testimonio-detail">Vigo · Tratamiento múltiple</p>
+        </div>
+        <div class="testimonio reveal reveal-d3">
+          <span class="testimonio-stars">★★★★★</span>
+          <p class="testimonio-quote">
+            Fui recomendada por un dolor de espalda, y para mi sorpresa no solo me alivió la parte física sino también la parte emocional que hacía que mi dolor aumentara significativamente. Un grandísimo profesional con muchísimo conocimiento y una paciencia infinita.
+          </p>
+          <p class="testimonio-author">Águeda I.</p>
+          <p class="testimonio-detail">Vigo · Enfoque integral</p>
         </div>
       </div>
-      <p style="text-align:center;margin-top:2rem;font-size:0.72rem;color:var(--cream-dim);letter-spacing:0.08em;" class="reveal">
-        [Testimonios reales de pacientes pendientes de recopilación · Placeholders de ejemplo]
-      </p>
     </div>
   </section>
 
   <!-- CTA FINAL -->
   <section id="cta-final">
     <div class="cta-inner">
-      <p class="section-label reveal">Primer paso</p>
+      <h3 class="section-label reveal">Reserva tu cita</h3>
       <h2 class="section-title reveal reveal-d1">
-        La primera conversación<br />
-        <em style="font-style:italic;color:var(--gold);">es gratuita</em>
+        Cuéntame qué está pasando.<br />
+        <em style="font-style:italic;color:var(--gold);">Te escucho.</em>
       </h2>
       <p class="reveal reveal-d2">
-        Cuéntame qué está pasando. Sin compromiso. Sin prisa.<br />
+        Sin compromisos. Sin prisas.<br />
         Te digo honestamente si puedo ayudarte y cómo.
       </p>
       <div class="reveal reveal-d3">
@@ -919,20 +1028,36 @@
         </a>
       </div>
       <p class="cta-note reveal reveal-d4">
-        +34 685 106 677 &nbsp;·&nbsp; Vigo, Galicia &nbsp;·&nbsp; victormartincentro.com
+        +34 685 106 677 &nbsp;·&nbsp; Rúa Padre Seixas, 38, Vigo &nbsp;·&nbsp; victormartincentro.com
       </p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Víctor Martín Centro</div>
-    <nav class="footer-links">
-      <a href="#gap">El centro</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#victor">Víctor</a>
-      <a href="#testimonios">Testimonios</a>
-    </nav>
+    <div class="footer-top">
+      <div class="footer-logo">Víctor Martín Centro</div>
+      <nav class="footer-links">
+        <a href="#gap">El centro</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#victor">Víctor</a>
+        <a href="#testimonios">Testimonios</a>
+      </nav>
+    </div>
+    <div class="footer-info">
+      <div class="footer-info-block">
+        <span class="footer-info-label">Ubicación</span>
+        <span>Rúa Padre Seixas, 38, entresuelo</span>
+        <span>36209 Vigo, Pontevedra</span>
+        <span>+34 685 106 677</span>
+      </div>
+      <div class="footer-info-block">
+        <span class="footer-info-label">Horario</span>
+        <span>Mar–Vie: 10:00–13:00 y 17:00–20:00</span>
+        <span>Sábado: 10:00–13:00</span>
+        <span>Domingo y lunes: Cerrado</span>
+      </div>
+    </div>
     <span class="footer-copy">© 2026 · Vigo · Todos los derechos reservados</span>
   </footer>
 
@@ -942,13 +1067,11 @@
   </a>
 
   <script>
-    // Nav scroll effect
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -960,7 +1083,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
