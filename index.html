@@ -69,23 +69,46 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 4rem;
+      padding: 1.2rem 3rem;
       transition: background 0.4s, padding 0.4s;
     }
     nav.scrolled {
       background: rgba(30,30,30,0.92);
       backdrop-filter: blur(12px);
-      padding: 1rem 4rem;
+      padding: 0.8rem 3rem;
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-family: var(--ff-serif);
-      font-size: 1rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--cream);
-      text-decoration: none;
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
     }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
     .nav-cta {
       font-family: var(--ff-sans);
       font-size: 0.75rem;
@@ -97,6 +120,7 @@
       padding: 0.6rem 1.4rem;
       text-decoration: none;
       transition: background 0.3s, color 0.3s;
+      flex-shrink: 0;
     }
     .nav-cta:hover { background: var(--gold); }
 
@@ -126,13 +150,13 @@
 
     /* Logo */
     .monogram {
-      width: 120px; height: 120px;
+      width: 190px; height: 190px;
       border-radius: 50%;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 3rem;
+      margin: 0 auto 2.5rem;
       position: relative;
       z-index: 1;
       animation: fadeUp 1s ease both;
@@ -198,6 +222,7 @@
     .btn-primary {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.6rem;
       background: var(--cream);
       color: var(--bg);
@@ -215,6 +240,7 @@
     .btn-ghost {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
       border: 1px solid var(--border);
       color: var(--cream);
@@ -228,6 +254,9 @@
       transition: border-color 0.3s, color 0.3s;
     }
     .btn-ghost:hover { border-color: var(--cream); }
+
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-ghost { min-width: 230px; }
 
     .hero-scroll {
       position: absolute;
@@ -267,7 +296,7 @@
     .sep-icon { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.3em; white-space: nowrap; }
 
     /* ─── SECTIONS ─── */
-    section { padding: 7rem 2rem; }
+    section { padding: 3.5rem 2rem; }
 
     .section-label {
       font-size: 0.75rem;
@@ -407,32 +436,20 @@
       color: var(--cream-dim);
       letter-spacing: 0.05em;
     }
-    /* Featured service — masaje visceral */
-    .service-featured {
-      background: rgba(196,168,130,0.04) !important;
+    /* Active/highlighted service card */
+    .service-item.service-active {
+      background: rgba(196,168,130,0.05) !important;
+      transition: background 0.2s;
     }
-    .service-featured::before {
+    .service-item.service-active::before {
       content: '';
       position: absolute;
       left: 0; top: 0; bottom: 0;
       width: 3px;
       background: var(--gold);
     }
-    .service-featured .service-name {
+    .service-item.service-active .service-name {
       color: var(--gold);
-    }
-    .service-exclusive {
-      display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(196,168,130,0.35);
-      padding: 0.2rem 0.55rem;
-      margin-top: 0.5rem;
-      font-family: var(--ff-sans);
-      font-weight: 500;
-      width: fit-content;
     }
 
     .combo-note {
@@ -715,13 +732,14 @@
     @media (max-width: 900px) {
       nav { padding: 1.2rem 1.5rem; }
       nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links { display: none; }
       #gap .inner, #victor .inner { grid-template-columns: 1fr; gap: 3rem; }
       .victor-img::after { display: none; }
       .services-grid { grid-template-columns: 1fr; }
       .footer-info { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      section { padding: 5rem 1.5rem; }
+      section { padding: 2.5rem 1.5rem; }
       .hero-ctas { flex-direction: column; align-items: center; }
       .footer-top { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; flex-wrap: wrap; }
@@ -748,7 +766,7 @@
       "latitude": 42.2307,
       "longitude": -8.7199
     },
-    "openingHours": ["Tu-Fr 10:00-13:00", "Tu-Fr 17:00-20:00", "Sa 10:00-13:00"],
+    "openingHours": ["Mo-Fr 10:00-13:00", "Mo-Fr 17:00-20:00", "Sa 10:00-13:00"],
     "priceRange": "30€",
     "currenciesAccepted": "EUR",
     "sameAs": ["https://www.instagram.com/victormartin_vigo/"],
@@ -782,7 +800,17 @@
 
   <!-- NAV -->
   <nav id="main-nav">
-    <a href="#hero" class="nav-logo">Víctor Martín Centro</a>
+    <div class="nav-left">
+      <a href="#hero" class="nav-logo">
+        <img src="logo.jpeg" alt="Víctor Martín Centro" />
+      </a>
+      <div class="nav-links">
+        <a href="#gap">El Centro</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#victor">Víctor</a>
+        <a href="#testimonios">Testimonios</a>
+      </div>
+    </div>
     <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="nav-cta">Reservar cita</a>
   </nav>
 
@@ -801,8 +829,8 @@
     </h1>
 
     <p class="hero-sub">
-      Masajes terapéuticos, masaje visceral, acupuntura, psicoterapia y kinesiología.<br />
-      Un solo terapeuta. Una visión integral. 30&nbsp;€/sesión.
+      Masaje terapéutico · Masaje visceral · Acupuntura · Kinesiología · Psicoterapia.<br />
+      Cada disciplina en su propia sesión. Un solo terapeuta. 30&nbsp;€.
     </p>
 
     <div class="hero-ctas">
@@ -878,7 +906,6 @@
         <div class="service-item service-featured">
           <p class="service-name">Masaje visceral</p>
           <p class="service-sub">Liberación de órganos y fascias abdominales</p>
-          <span class="service-exclusive">Único en Vigo</span>
         </div>
         <div class="service-item">
           <p class="service-name">Masajes terapéuticos</p>
@@ -912,7 +939,7 @@
 
       <div class="combo-note reveal">
         <strong>Las especialidades se pueden combinar en una misma sesión.</strong>
-        Por ejemplo: masaje visceral + acupuntura, o psicoterapia + reflexología podal.
+        Por ejemplo: masaje visceral + acupuntura, o acupuntura zonal + reflexología podal.
         Víctor adapta cada sesión a lo que el cuerpo y la psique necesiten ese día.
       </div>
 
@@ -1017,18 +1044,14 @@
         Cuéntame qué está pasando.<br />
         <em style="font-style:italic;color:var(--gold);">Te escucho.</em>
       </h2>
-      <p class="reveal reveal-d2">
-        Sin compromisos. Sin prisas.<br />
-        Te digo honestamente si puedo ayudarte y cómo.
-      </p>
-      <div class="reveal reveal-d3">
+      <div class="reveal reveal-d1">
         <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.8rem;padding:1.1rem 2.5rem;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Escribir a Víctor por WhatsApp
         </a>
       </div>
-      <p class="cta-note reveal reveal-d4">
-        +34 685 106 677 &nbsp;·&nbsp; Rúa Padre Seixas, 38, Vigo &nbsp;·&nbsp; victormartincentro.com
+      <p class="cta-note reveal reveal-d2">
+        +34 685 106 677 &nbsp;·&nbsp; Rúa Padre Seixas, 38, entresuelo &nbsp;·&nbsp; victormartincentro.com
       </p>
     </div>
   </section>
@@ -1048,14 +1071,13 @@
       <div class="footer-info-block">
         <span class="footer-info-label">Ubicación</span>
         <span>Rúa Padre Seixas, 38, entresuelo</span>
-        <span>36209 Vigo, Pontevedra</span>
         <span>+34 685 106 677</span>
       </div>
       <div class="footer-info-block">
         <span class="footer-info-label">Horario</span>
-        <span>Mar–Vie: 10:00–13:00 y 17:00–20:00</span>
+        <span>Lun–Vie: 10:00–13:00 y 17:00–20:00</span>
         <span>Sábado: 10:00–13:00</span>
-        <span>Domingo y lunes: Cerrado</span>
+        <span>Domingo: Cerrado</span>
       </div>
     </div>
     <span class="footer-copy">© 2026 · Vigo · Todos los derechos reservados</span>
@@ -1092,6 +1114,23 @@
         }
       });
     });
+
+    const servicesGrid = document.querySelector('.services-grid');
+    if (servicesGrid) {
+      const serviceItems = servicesGrid.querySelectorAll('.service-item');
+      const defaultItem = servicesGrid.querySelector('.service-featured');
+      if (defaultItem) defaultItem.classList.add('service-active');
+      serviceItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          serviceItems.forEach(i => i.classList.remove('service-active'));
+          item.classList.add('service-active');
+        });
+      });
+      servicesGrid.addEventListener('mouseleave', () => {
+        serviceItems.forEach(i => i.classList.remove('service-active'));
+        if (defaultItem) defaultItem.classList.add('service-active');
+      });
+    }
   </script>
 </body>
 </html>
