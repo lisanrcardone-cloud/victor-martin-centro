@@ -760,21 +760,131 @@
       50%       { opacity: 1;   transform: scaleY(1.1); }
     }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; }
-      nav.scrolled { padding: 0.9rem 1.5rem; }
-      .nav-links { display: none; }
-      #gap .inner, #victor .inner { grid-template-columns: 1fr; gap: 3rem; }
-      .victor-img::after { display: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .footer-info { grid-template-columns: 1fr; }
+    /* ─── HAMBURGER BUTTON ─── */
+    /* Mobile logo — hidden on desktop */
+    .nav-logo-mobile {
+      display: none;
+      height: 35px;
+      width: auto;
+      flex-shrink: 0;
     }
-    @media (max-width: 600px) {
-      section { padding: 2.5rem 1.5rem; }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      color: var(--cream);
+      line-height: 0;
+      flex-shrink: 0;
+    }
+    .nav-hamburger svg { display: block; }
+    .ham-close { display: none; }
+
+    /* ─── MOBILE MENU OVERLAY ─── */
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #2a2a2a;
+      z-index: 90;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 5rem 2rem 3rem;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      font-family: var(--ff-sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      padding: 1.1rem 0;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu a:first-child { border-top: 1px solid var(--border); }
+    .nav-mobile-menu a:hover { color: var(--cream); }
+    .nav-mobile-menu .nav-mobile-cta {
+      margin-top: 2rem;
+      background: var(--cream);
+      color: var(--bg);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      padding: 1rem 2rem;
+      border: none;
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .nav-mobile-menu .nav-mobile-cta:hover { background: var(--gold); color: var(--bg); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      nav.scrolled { padding: 0.8rem 1.2rem; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: block; }
+      .nav-logo-mobile { display: block; }
+
+      /* hero */
+      #hero { padding: 5rem 1.2rem 3rem; min-height: auto; }
+      .monogram { width: 140px; height: 140px; margin-bottom: 1.5rem; }
+      .monogram img { width: 140px; height: 140px; }
+      .hero-label { font-size: 0.65rem; letter-spacing: 0.2em; margin-bottom: 1rem; }
+      .hero-headline { font-size: clamp(1.9rem, 8vw, 2.8rem); margin-bottom: 1rem; }
+      .hero-sub { font-size: 0.8rem; margin-bottom: 2rem; }
       .hero-ctas { flex-direction: column; align-items: center; }
-      .footer-top { flex-direction: column; text-align: center; }
-      .footer-links { justify-content: center; flex-wrap: wrap; }
+      .hero-ctas .btn-primary,
+      .hero-ctas .btn-ghost { width: 100%; max-width: 320px; min-width: unset; }
+      .hero-scroll { display: none; }
+
+      /* sections */
+      section { padding: 2.5rem 1.2rem; }
+      .section-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+
+      /* centro */
+      #centro .inner { grid-template-columns: 1fr; gap: 2rem; }
+      .pillar { padding: 1.2rem; }
+
+      /* servicios */
+      #servicios { max-width: 100%; }
+      .services-grid { grid-template-columns: 1fr; }
+      #servicios .header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+
+      /* victor */
+      #victor .inner { grid-template-columns: 1fr; gap: 2rem; }
+      .victor-img::after { display: none; }
+      .victor-img-frame { aspect-ratio: 4/3; max-width: 300px; margin: 0 auto; }
+      .formacion-grid { grid-template-columns: 1fr; gap: 0.3rem; }
+
+      /* testimonios */
+      .testimonios-grid { grid-template-columns: 1fr; }
+
+      /* faq */
+      #faq .inner { padding: 0; }
+      .faq-question { font-size: 0.95rem; }
+
+      /* footer */
+      footer { padding: 2rem 1.2rem; }
+      .footer-top { flex-direction: column; text-align: center; gap: 1rem; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+      .footer-info { grid-template-columns: 1fr; gap: 1rem; }
+
+      /* wa float — move up when cookie banner might show */
+      .wa-float { bottom: 1.2rem; right: 1.2rem; width: 50px; height: 50px; }
+    }
+    @media (max-width: 900px) {
+      #gap .inner { grid-template-columns: 1fr; gap: 3rem; }
     }
 
     /* ─── FAQ ─── */
@@ -923,7 +1033,7 @@
       {
         "@type": "Question",
         "name": "¿Cómo reservo una cita?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Por WhatsApp al 685 10 66 77. Es la forma más rápida y directa."}
+        "acceptedAnswer": {"@type": "Answer", "text": "Podés reservar de tres formas: haciendo clic en el botón 'Reservar Cita' de la web, tocando el icono de WhatsApp flotante, o escribiendo directamente al 685 10 66 77."}
       },
       {
         "@type": "Question",
@@ -998,9 +1108,31 @@
       <a href="#servicios">Servicios</a>
       <a href="#victor">Víctor</a>
       <a href="#testimonios">Testimonios</a>
+      <a href="#faq">Preguntas</a>
     </div>
     <a href="https://wa.me/34685106677?text=Hola%20V%C3%ADctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="nav-cta">Reservar cita</a>
+
+    <!-- Mobile: logo + hamburger -->
+    <img src="logo-clean.png" alt="Víctor Martín Centro" class="nav-logo-mobile" />
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <svg class="ham-open" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="ham-close" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu" role="dialog" aria-label="Menú principal" aria-modal="true">
+    <a href="#centro" class="nav-mobile-link">El Centro</a>
+    <a href="#servicios" class="nav-mobile-link">Servicios</a>
+    <a href="#victor" class="nav-mobile-link">Víctor</a>
+    <a href="#testimonios" class="nav-mobile-link">Testimonios</a>
+    <a href="#faq" class="nav-mobile-link">Preguntas</a>
+    <a href="https://wa.me/34685106677?text=Hola%20V%C3%ADctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="nav-mobile-cta">Reservar cita</a>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
@@ -1279,7 +1411,7 @@
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq-answer" role="region">
-            <p>Por <strong style="color:var(--cream);">WhatsApp al 685 10 66 77</strong>. Es la forma más rápida y directa de hablar con Víctor y acordar el día y la hora.</p>
+            <p>Podés reservar de tres formas: haciendo clic en el botón <strong style="color:var(--cream);">'Reservar Cita'</strong> de la web, tocando el icono de WhatsApp flotante, o escribiendo directamente al <strong style="color:var(--cream);">685 10 66 77</strong>. Es la forma más rápida y directa de hablar con Víctor y acordar el día y la hora.</p>
           </div>
         </div>
 
@@ -1395,6 +1527,35 @@
         if (defaultItem) defaultItem.classList.add('service-active');
       });
     }
+
+    // Hamburger menu
+    const navToggle     = document.getElementById('nav-toggle');
+    const navMobileMenu = document.getElementById('nav-mobile-menu');
+    const hamOpen       = navToggle.querySelector('.ham-open');
+    const hamClose      = navToggle.querySelector('.ham-close');
+
+    function openMobileMenu() {
+      navMobileMenu.classList.add('open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Cerrar menú');
+      hamOpen.style.display  = 'none';
+      hamClose.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      navMobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menú');
+      hamOpen.style.display  = 'block';
+      hamClose.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    navToggle.addEventListener('click', () => {
+      navMobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+    });
+    navMobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
 
     // Cookie banner
     const cookieBanner = document.getElementById('cookie-banner');
