@@ -22,9 +22,14 @@
   <meta name="twitter:title" content="Víctor Martín Centro — Bienestar Integral en Vigo" />
   <meta name="twitter:description" content="El único centro en Vigo que integra masajes terapéuticos, acupuntura, psicoterapia y kinesiología. 30€/sesión." />
 
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1105,7 +1110,10 @@
   <!-- NAV -->
   <nav id="main-nav">
     <div class="nav-links">
-      <img src="logo-clean.png" alt="Víctor Martín Centro" class="nav-logo" />
+      <picture>
+        <source srcset="logo-clean.webp" type="image/webp" />
+        <img src="logo-clean.png" alt="Víctor Martín Centro" class="nav-logo" width="44" height="44" />
+      </picture>
       <a href="#centro">El Centro</a>
       <a href="#servicios">Servicios</a>
       <a href="#victor">Víctor</a>
@@ -1115,7 +1123,10 @@
     <a href="https://wa.me/34685106677?text=Hola%20V%C3%ADctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="nav-cta">Reservar cita</a>
 
     <!-- Mobile: logo + hamburger -->
-    <img src="logo-clean.png" alt="Víctor Martín Centro" class="nav-logo-mobile" />
+    <picture>
+      <source srcset="logo-clean.webp" type="image/webp" />
+      <img src="logo-clean.png" alt="Víctor Martín Centro" class="nav-logo-mobile" width="35" height="35" />
+    </picture>
     <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
       <svg class="ham-open" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -1165,7 +1176,7 @@
   <section id="centro">
     <div class="inner">
       <div class="gap-copy">
-        <h3 class="section-label reveal">Por qué Víctor Martín Centro</h3>
+        <p class="section-label reveal">Por qué Víctor Martín Centro</p>
         <h2 class="section-title reveal reveal-d1">
           En Vigo hay centros de masajes.<br />
           Hay centros de yoga.<br />
@@ -1203,7 +1214,7 @@
     <div id="servicios">
       <div class="header">
         <div>
-          <h3 class="section-label reveal">Servicios</h3>
+          <p class="section-label reveal">Servicios</p>
           <h2 class="section-title reveal reveal-d1">Lo que ofrezco</h2>
         </div>
         <div class="price-badge reveal reveal-d2">
@@ -1280,7 +1291,7 @@
         </div>
       </div>
       <div class="victor-copy">
-        <h3 class="section-label reveal">El terapeuta</h3>
+        <p class="section-label reveal">El terapeuta</p>
         <h2 class="section-title reveal reveal-d1">Víctor Martín</h2>
         <p class="highlight reveal reveal-d2">
           Llevo 16 años trabajando y formándome continuamente en el campo de la salud, desde mi primer encuentro con la terapéutica mi fascinación me llevo a empezar por el masaje, la osteopatia, pasando una larga trayectoria en la acupuntura y finalmente en el psicoanálisis lacaniano.
@@ -1310,7 +1321,7 @@
   <section>
     <div id="testimonios">
       <div class="header">
-        <h3 class="section-label reveal">Testimonios</h3>
+        <p class="section-label reveal">Testimonios</p>
         <h2 class="section-title reveal reveal-d1">Lo que dicen quienes ya vinieron</h2>
       </div>
       <div class="testimonios-grid">
@@ -1353,7 +1364,7 @@
   <!-- FAQ -->
   <section id="faq">
     <div class="inner">
-      <h3 class="section-label reveal">Preguntas frecuentes</h3>
+      <p class="section-label reveal">Preguntas frecuentes</p>
       <h2 class="section-title reveal reveal-d1">Todo lo que necesitas saber</h2>
       <div class="faq-list" role="list">
 
@@ -1424,7 +1435,7 @@
   <!-- CTA FINAL -->
   <section id="cta-final">
     <div class="cta-inner">
-      <h3 class="section-label reveal">Reserva tu cita</h3>
+      <p class="section-label reveal">Reserva tu cita</p>
       <h2 class="section-title reveal reveal-d1">
         Cuéntame qué está pasando.<br />
         <em style="font-style:italic;color:var(--gold);">Te escucho.</em>
@@ -1478,11 +1489,11 @@
   <div id="cookie-banner" role="dialog" aria-label="Aviso de cookies" aria-live="polite">
     <p class="cookie-text">
       Usamos cookies analíticas (Google Analytics GA4 y Microsoft Clarity) para entender cómo se navega por esta web. No recopilamos datos personales identificables.
-      <a href="/privacidad">Más información</a>
+      <a href="/privacidad">Ver política de privacidad</a>
     </p>
     <div class="cookie-actions">
       <button class="cookie-accept" id="cookie-accept-btn">Aceptar</button>
-      <a href="/privacidad" class="cookie-more">Más información</a>
+      <a href="/privacidad" class="cookie-more">Política de privacidad</a>
     </div>
   </div>
 
