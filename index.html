@@ -766,14 +766,6 @@
     }
 
     /* ─── HAMBURGER BUTTON ─── */
-    /* Mobile logo — hidden on desktop */
-    .nav-logo-mobile {
-      display: none;
-      height: 35px;
-      width: auto;
-      flex-shrink: 0;
-    }
-
     .nav-hamburger {
       display: none;
       background: none;
@@ -841,7 +833,6 @@
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-hamburger { display: block; }
-      .nav-logo-mobile { display: block; }
 
       /* hero */
       #hero { padding: 5rem 1.2rem 3rem; min-height: auto; }
@@ -1122,11 +1113,7 @@
     </div>
     <a href="https://wa.me/34685106677?text=Hola%20V%C3%ADctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="nav-cta">Reservar cita</a>
 
-    <!-- Mobile: logo + hamburger -->
-    <picture>
-      <source srcset="logo-clean.webp" type="image/webp" />
-      <img src="logo-clean.png" alt="Víctor Martín Centro" class="nav-logo-mobile" width="35" height="35" />
-    </picture>
+    <!-- Mobile: hamburger -->
     <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
       <svg class="ham-open" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -1544,6 +1531,9 @@
     // Hamburger menu
     const navToggle     = document.getElementById('nav-toggle');
     const navMobileMenu = document.getElementById('nav-mobile-menu');
+    // Force closed state on init to clear any cached inline styles
+    nav.classList.remove('menu-open');
+    navMobileMenu.classList.remove('open');
     function openMobileMenu() {
       navMobileMenu.classList.add('open');
       nav.classList.add('menu-open');
