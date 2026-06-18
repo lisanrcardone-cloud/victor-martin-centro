@@ -781,6 +781,8 @@
     }
     .nav-hamburger svg { display: block; }
     .ham-close { display: none; }
+    nav.menu-open .ham-open  { display: none; }
+    nav.menu-open .ham-close { display: block; }
 
     /* ─── MOBILE MENU OVERLAY ─── */
     .nav-mobile-menu {
@@ -1531,23 +1533,18 @@
     // Hamburger menu
     const navToggle     = document.getElementById('nav-toggle');
     const navMobileMenu = document.getElementById('nav-mobile-menu');
-    const hamOpen       = navToggle.querySelector('.ham-open');
-    const hamClose      = navToggle.querySelector('.ham-close');
-
     function openMobileMenu() {
       navMobileMenu.classList.add('open');
+      nav.classList.add('menu-open');
       navToggle.setAttribute('aria-expanded', 'true');
       navToggle.setAttribute('aria-label', 'Cerrar menú');
-      hamOpen.style.display  = 'none';
-      hamClose.style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
     function closeMobileMenu() {
       navMobileMenu.classList.remove('open');
+      nav.classList.remove('menu-open');
       navToggle.setAttribute('aria-expanded', 'false');
       navToggle.setAttribute('aria-label', 'Abrir menú');
-      hamOpen.style.display  = 'block';
-      hamClose.style.display = 'none';
       document.body.style.overflow = '';
     }
 
