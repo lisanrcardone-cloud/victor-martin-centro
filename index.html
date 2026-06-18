@@ -78,8 +78,16 @@
       padding: 0.8rem 3rem;
       border-bottom: 1px solid var(--border);
     }
+    .nav-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 1.5rem;
     }
     .nav-links a {
@@ -519,6 +527,38 @@
       line-height: 1.5;
       margin-bottom: 1.5rem;
     }
+    .formacion {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .formacion-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      font-family: var(--ff-sans);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .formacion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 2rem;
+    }
+    .formacion-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.82rem;
+      color: var(--cream-dim);
+    }
+    .formacion-item::before {
+      content: '';
+      display: block;
+      width: 16px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
     .credentials {
       display: flex;
       flex-direction: column;
@@ -793,6 +833,7 @@
   <!-- NAV -->
   <nav id="main-nav">
     <div class="nav-links">
+      <img src="logo-clean.png" alt="Víctor Martín Centro" class="nav-logo" />
       <a href="#centro">El Centro</a>
       <a href="#servicios">Servicios</a>
       <a href="#victor">Víctor</a>
@@ -845,9 +886,6 @@
         </blockquote>
         <p class="reveal reveal-d3">
           Todo malestar puede tener su origen únicamente en el cuerpo o en la psique, o incluso, la mayoría de las veces una combinación de estas dos. Hay que valorar para saber desde donde abordar terapéuticamente al paciente, y hacer un tratamiento exclusivo para cada sujeto, ya que cada uno, tiene su propia historia.
-        </p>
-        <p class="reveal reveal-d3">
-          Cada sesión parte de una escucha real y llega donde hace falta llegar.
         </p>
       </div>
       <div class="pillars">
@@ -955,16 +993,24 @@
         <h3 class="section-label reveal">El terapeuta</h3>
         <h2 class="section-title reveal reveal-d1">Víctor Martín</h2>
         <p class="highlight reveal reveal-d2">
-          "Llevo 16 años trabajando y formándome continuamente en el campo de la salud, desde mi primer encuentro con la terapéutica mi fascinación me llevo a empezar por el masaje, la osteopatia, pasando una larga trayectoria en la acupuntura y finalmente en el psicoanálisis lacaniano."
+          Llevo 16 años trabajando y formándome continuamente en el campo de la salud, desde mi primer encuentro con la terapéutica mi fascinación me llevo a empezar por el masaje, la osteopatia, pasando una larga trayectoria en la acupuntura y finalmente en el psicoanálisis lacaniano.
         </p>
         <p class="reveal reveal-d2">
           Mi forma de ver y empezar un tratamiento normalmente es desde el enfoque de la acupuntura taoísta, donde empezamos a ver cómo está el cuerpo físico y valorar si desde ahí se corrigen los síntomas. Si no es así, pasamos a estudiar si hay emociones, tipo ira, tristeza etc, si son las que están originando una descompensación en el cuerpo. Si aún sigue el malestar, pues hay que valorar si es preciso comenzar un tratamiento de la psique, en mi caso particular como profesional, desde el campo psicoanalítico, trabajando desde la palabra el cuerpo.
         </p>
-        <div class="credentials reveal reveal-d3">
-          <div class="credential">Formación en Acupuntura Tradicional China — [Escuela/Universidad]</div>
-          <div class="credential">Psicoterapia — [Formación y colegiación]</div>
-          <div class="credential">Kinesiología Aplicada — [Formación]</div>
-          <div class="credential">16 años de práctica clínica en Vigo</div>
+        <div class="formacion reveal reveal-d3">
+          <p class="formacion-label">Formación</p>
+          <div class="formacion-grid">
+            <span class="formacion-item">Quiromasaje biológico</span>
+            <span class="formacion-item">Reflexología podal</span>
+            <span class="formacion-item">Acupuntura Tung</span>
+            <span class="formacion-item">Acupuntura MTC</span>
+            <span class="formacion-item">Craneopuntura</span>
+            <span class="formacion-item">Masaje visceral</span>
+            <span class="formacion-item">Kinesiología</span>
+            <span class="formacion-item">Psicoanálisis</span>
+            <span class="formacion-item">Ciclo medio auxiliar de enfermería</span>
+          </div>
         </div>
       </div>
     </div>
