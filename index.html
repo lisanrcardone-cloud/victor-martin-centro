@@ -776,8 +776,168 @@
       .footer-top { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; flex-wrap: wrap; }
     }
+
+    /* ─── FAQ ─── */
+    #faq {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    #faq .inner { max-width: 760px; margin: 0 auto; }
+    .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.3rem 0;
+      text-align: left;
+      color: var(--cream);
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      color: var(--gold);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p {
+      font-size: 0.88rem;
+      color: var(--cream-dim);
+      line-height: 1.8;
+      padding-bottom: 1.3rem;
+    }
+
+    /* ─── COOKIE BANNER ─── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 500;
+      background: #2a2a2a;
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
+    }
+    #cookie-banner.hidden { display: none; }
+    .cookie-text {
+      font-size: 0.8rem;
+      color: var(--cream-dim);
+      line-height: 1.6;
+      flex: 1;
+      min-width: 200px;
+    }
+    .cookie-text a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .cookie-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .cookie-accept {
+      background: var(--cream);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      transition: background 0.2s;
+    }
+    .cookie-accept:hover { background: var(--gold); }
+    .cookie-more {
+      background: transparent;
+      color: var(--cream-dim);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.2rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .cookie-more:hover { border-color: var(--cream-dim); color: var(--cream); }
+    @media (max-width: 600px) {
+      #cookie-banner { padding: 1rem 1.2rem; }
+      .cookie-actions { width: 100%; }
+      .cookie-accept, .cookie-more { flex: 1; text-align: center; justify-content: center; }
+    }
   </style>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta una sesión?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Todas las sesiones tienen el mismo precio: 30€. Los servicios se pueden combinar en una misma sesión."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Dónde está el centro?",
+        "acceptedAnswer": {"@type": "Answer", "text": "En Rúa Padre Seixas, 38, entresuelo, Vigo (36209)."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el horario?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Lunes a viernes de 10:00 a 13:00 y de 17:00 a 20:00. Sábados de 10:00 a 13:00. Domingos cerrado."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo reservo una cita?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Por WhatsApp al 685 10 66 77. Es la forma más rápida y directa."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es el masaje visceral?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Es una técnica de manipulación suave de los órganos internos para mejorar su movilidad y función. Víctor es el único terapeuta en Vigo que lo ofrece."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo combinar varios tratamientos en una sesión?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Sí. Víctor valora cada caso individualmente y adapta la sesión según lo que necesite cada persona."}
+      }
+    ]
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1076,6 +1236,77 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="inner">
+      <h3 class="section-label reveal">Preguntas frecuentes</h3>
+      <h2 class="section-title reveal reveal-d1">Todo lo que necesitas saber</h2>
+      <div class="faq-list" role="list">
+
+        <div class="faq-item reveal" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            ¿Cuánto cuesta una sesión?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Todas las sesiones tienen el mismo precio: <strong style="color:var(--cream);">30€</strong>. Los servicios se pueden combinar en una misma sesión sin coste adicional.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-d1" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            ¿Dónde está el centro?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>En <strong style="color:var(--cream);">Rúa Padre Seixas, 38, entresuelo, Vigo (36209)</strong>. Accesible en transporte público y con aparcamiento cercano.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-d2" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            ¿Cuál es el horario?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Lunes a viernes de <strong style="color:var(--cream);">10:00 a 13:00</strong> y de <strong style="color:var(--cream);">17:00 a 20:00</strong>. Sábados de <strong style="color:var(--cream);">10:00 a 13:00</strong>. Domingos cerrado.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-d3" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            ¿Cómo reservo una cita?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Por <strong style="color:var(--cream);">WhatsApp al 685 10 66 77</strong>. Es la forma más rápida y directa de hablar con Víctor y acordar el día y la hora.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            ¿Qué es el masaje visceral?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Es una técnica de manipulación suave de los órganos internos para mejorar su movilidad y función. Puede aliviar problemas digestivos, dolores referidos y tensiones viscerales. <strong style="color:var(--cream);">Víctor es el único terapeuta en Vigo que lo ofrece.</strong></p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-d1" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            ¿Puedo combinar varios tratamientos en una sesión?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Sí. Víctor valora cada caso individualmente y adapta la sesión según lo que necesite cada persona. Por ejemplo: masaje visceral + acupuntura, o reflexología + kinesiología.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-top">
@@ -1085,6 +1316,7 @@
         <a href="#servicios">Servicios</a>
         <a href="#victor">Víctor</a>
         <a href="#testimonios">Testimonios</a>
+        <a href="/privacidad">Privacidad</a>
       </div>
     </div>
     <div class="footer-info">
@@ -1107,6 +1339,18 @@
   <a href="https://wa.me/34685106677?text=Hola%20Víctor%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
   </a>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" role="dialog" aria-label="Aviso de cookies" aria-live="polite">
+    <p class="cookie-text">
+      Usamos cookies analíticas (Google Analytics GA4 y Microsoft Clarity) para entender cómo se navega por esta web. No recopilamos datos personales identificables.
+      <a href="/privacidad">Más información</a>
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-accept" id="cookie-accept-btn">Aceptar</button>
+      <a href="/privacidad" class="cookie-more">Más información</a>
+    </div>
+  </div>
 
   <script>
     const nav = document.getElementById('main-nav');
@@ -1151,6 +1395,59 @@
         if (defaultItem) defaultItem.classList.add('service-active');
       });
     }
+
+    // Cookie banner
+    const cookieBanner = document.getElementById('cookie-banner');
+    if (localStorage.getItem('cookie_consent') === '1') {
+      cookieBanner.classList.add('hidden');
+    }
+    document.getElementById('cookie-accept-btn').addEventListener('click', () => {
+      localStorage.setItem('cookie_consent', '1');
+      cookieBanner.classList.add('hidden');
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // GA4 WhatsApp click events
+    function getWaSource(el) {
+      const sections = [
+        { id: 'hero',       label: 'hero' },
+        { id: 'centro',     label: 'centro' },
+        { id: 'servicios',  label: 'servicios' },
+        { id: 'victor',     label: 'victor' },
+        { id: 'testimonios',label: 'testimonios' },
+        { id: 'cta-final',  label: 'cta_final' },
+        { id: 'faq',        label: 'faq' },
+      ];
+      for (const s of sections) {
+        const sec = document.getElementById(s.id);
+        if (sec && sec.contains(el)) return s.label;
+      }
+      if (el.closest('nav')) return 'navbar';
+      if (el.closest('footer')) return 'footer';
+      return 'other';
+    }
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_click', { source: getWaSource(link) });
+        }
+      });
+    });
   </script>
 </body>
 </html>
