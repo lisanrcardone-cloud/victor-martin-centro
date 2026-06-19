@@ -500,18 +500,9 @@
       aspect-ratio: 3/4;
       background: #2a2820;
       border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--cream-dim);
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-align: center;
-      text-transform: uppercase;
+      overflow: hidden;
     }
-    .victor-img-frame svg { width: 48px; height: 48px; opacity: 0.3; }
+    .victor-img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .victor-img::after {
       content: '';
       position: absolute;
@@ -1275,10 +1266,7 @@
     <div class="inner">
       <div class="victor-img reveal">
         <div class="victor-img-frame">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-          <span>Foto de Víctor<br />próximamente</span>
+          <img src="victor-v2.webp" alt="Víctor Martín, terapeuta en Vigo" width="800" height="1066" loading="lazy" />
         </div>
       </div>
       <div class="victor-copy">
