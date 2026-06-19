@@ -493,9 +493,13 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 340px 1fr;
-      gap: 5rem;
+      grid-template-rows: auto 1fr;
+      gap: 1.5rem 5rem;
       align-items: start;
     }
+    .victor-header { grid-column: 2; grid-row: 1; }
+    .victor-img   { grid-column: 1; grid-row: 1 / 3; }
+    .victor-copy  { grid-column: 2; grid-row: 2; }
     .victor-img { position: relative; }
     .victor-img-frame {
       width: 100%;
@@ -863,9 +867,10 @@
       #servicios .header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
 
       /* victor */
-      #victor .inner { grid-template-columns: 1fr; gap: 2rem; }
-      .victor-img { order: 2; }
-      .victor-copy { order: 1; }
+      #victor .inner { grid-template-columns: 1fr; grid-template-rows: auto; gap: 1.5rem; }
+      .victor-header { grid-column: 1; grid-row: 1; }
+      .victor-img    { grid-column: 1; grid-row: 2; }
+      .victor-copy   { grid-column: 1; grid-row: 3; }
       .victor-img::after { display: none; }
       .victor-img-frame { aspect-ratio: 3/4; max-width: 260px; margin: 0 auto; }
       .formacion-grid { grid-template-columns: 1fr; gap: 0.3rem; }
@@ -1274,14 +1279,16 @@
   <!-- SOBRE VÍCTOR -->
   <section id="victor">
     <div class="inner">
+      <div class="victor-header">
+        <p class="section-label reveal">El terapeuta</p>
+        <h2 class="section-title reveal reveal-d1">Víctor Martín</h2>
+      </div>
       <div class="victor-img reveal">
         <div class="victor-img-frame">
           <img src="victor-v2.webp" alt="Víctor Martín, terapeuta en Vigo" width="800" height="1066" loading="lazy" />
         </div>
       </div>
       <div class="victor-copy">
-        <p class="section-label reveal">El terapeuta</p>
-        <h2 class="section-title reveal reveal-d1">Víctor Martín</h2>
         <p class="highlight reveal reveal-d2">
           Llevo 16 años trabajando y formándome continuamente en el campo de la salud, desde mi primer encuentro con la terapéutica mi fascinación me llevo a empezar por el masaje, la osteopatia, pasando una larga trayectoria en la acupuntura y finalmente en el psicoanálisis lacaniano.
         </p>
