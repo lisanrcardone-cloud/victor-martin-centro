@@ -547,10 +547,16 @@
     }
     .formacion-item {
       display: flex;
-      align-items: center;
-      gap: 0.7rem;
+      flex-direction: column;
+      gap: 0.15rem;
       font-size: 0.82rem;
       color: var(--cream-dim);
+    }
+    .formacion-item span {
+      font-size: 0.68rem;
+      color: var(--gold);
+      opacity: 0.7;
+      letter-spacing: 0.05em;
     }
     .formacion-item::before {
       content: '';
@@ -1281,13 +1287,15 @@
         <div class="formacion reveal reveal-d3">
           <p class="formacion-label">Formación</p>
           <div class="formacion-grid">
-            <span class="formacion-item">Quiromasaje biológico</span>
-            <span class="formacion-item">Reflexología podal</span>
+            <span class="formacion-item">Quiromasaje biológico<span>Quirex Escuela de Técnicas Manuales</span></span>
+            <span class="formacion-item">Reflexología podal<span>Quirex Escuela de Técnicas Manuales</span></span>
             <span class="formacion-item">Acupuntura Tung</span>
             <span class="formacion-item">Acupuntura MTC</span>
+            <span class="formacion-item">Acupuntura zonal</span>
             <span class="formacion-item">Craneopuntura</span>
+            <span class="formacion-item">Dien Chan Multireflex<span>EIMDC · Santiago de Compostela</span></span>
             <span class="formacion-item">Masaje visceral</span>
-            <span class="formacion-item">Kinesiología</span>
+            <span class="formacion-item">Kinesiología transgeneracional<span>Kinesiología Unificada</span></span>
             <span class="formacion-item">Psicoanálisis</span>
             <span class="formacion-item">Ciclo medio auxiliar de enfermería</span>
           </div>
