@@ -293,8 +293,13 @@
     }
     .section-title {
       font-family: var(--ff-serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
       font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    /* Títulos de sección que deben caber en una línea en desktop */
+    .section-title--single {
+      font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+      white-space: nowrap;
     }
 
     /* ─── BOTONES ─── */
@@ -322,7 +327,7 @@
       min-height: 90vh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      text-align: center; padding: 7rem 2rem 4rem;
+      text-align: center; padding: 7rem 2rem 8rem;
       position: relative; overflow: hidden;
     }
     #hero::after {
@@ -377,10 +382,11 @@
     .hero-ctas .btn-primary,
     .hero-ctas .btn-ghost { min-width: 220px; }
     .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 50%;
+      position: absolute; bottom: 2rem; left: 50%;
       transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      animation: fadeUp 1s 0.6s ease both; z-index: 1;
+      animation: fadeUp 1s 0.6s ease both; z-index: 2;
+      pointer-events: none;
     }
     .hero-scroll span {
       font-size: 0.72rem; letter-spacing: 0.3em;
@@ -520,7 +526,7 @@
     .precio-num {
       font-family: var(--ff-serif); font-size: clamp(4rem, 10vw, 7rem);
       font-weight: 300; line-height: 1; color: var(--cream);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
     }
     .precio-sesion {
       font-size: 0.75rem; letter-spacing: 0.3em;
@@ -538,12 +544,6 @@
       content: ''; display: block; width: 16px; height: 1px;
       background: var(--gold); flex-shrink: 0;
     }
-    .precio-vs {
-      margin-top: 1.5rem; padding: 1rem 1.2rem;
-      background: rgba(196,168,130,0.04); border: 1px solid var(--border);
-      font-size: 0.8rem; color: var(--cream-dim); line-height: 1.7;
-    }
-    .precio-vs strong { color: var(--cream); }
 
     /* ─── PRIMERA SESIÓN ─── */
     #primera-sesion {
@@ -795,7 +795,7 @@
       .nav-cta { display: none; }
       .nav-hamburger { display: block; }
 
-      #hero { padding: 5rem 1.2rem 3rem; min-height: auto; }
+      #hero { padding: 5rem 1.2rem 5rem; min-height: auto; }
       .hero-headline { font-size: clamp(2rem, 8vw, 2.8rem); }
       .hero-ctas { flex-direction: column; align-items: center; }
       .hero-ctas .btn-primary, .hero-ctas .btn-ghost { width: 100%; max-width: 320px; min-width: unset; }
@@ -906,7 +906,7 @@
     <div class="inner">
       <div class="que-es-copy">
         <p class="section-label reveal">Fundamentos</p>
-        <h2 class="section-title reveal reveal-d1">¿Qué es<br />la acupuntura?</h2>
+        <h2 class="section-title section-title--single reveal reveal-d1">¿Qué es la acupuntura?</h2>
         <p class="reveal reveal-d2">
           La acupuntura es una técnica de la medicina tradicional china que consiste en insertar agujas muy finas en puntos específicos del cuerpo para regular los flujos energéticos del organismo y activar su capacidad de autocuración.
         </p>
@@ -964,7 +964,7 @@
     <div id="sintomas">
       <div class="intro">
         <p class="section-label reveal">Indicaciones</p>
-        <h2 class="section-title reveal reveal-d1">¿Para qué<br />sirve la acupuntura?</h2>
+        <h2 class="section-title section-title--single reveal reveal-d1">¿Para qué sirve la acupuntura?</h2>
         <p class="reveal reveal-d2">La acupuntura en Vigo se utiliza cada vez más como tratamiento principal o complementario para una amplia variedad de problemas. Estos son los más habituales en la consulta de Víctor.</p>
       </div>
       <div class="sintomas-grid reveal">
@@ -1068,9 +1068,6 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Reservar por WhatsApp
         </a>
-        <div class="precio-vs">
-          <strong>Precio medio en Vigo:</strong> entre 40€ y 70€/sesión según el centro. En Víctor Martín Centro todas las sesiones —independientemente de la modalidad— cuestan 30€. El mismo precio que un masaje terapéutico.
-        </div>
       </div>
     </div>
   </section>
@@ -1183,7 +1180,7 @@
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq-answer" role="region">
-            <p>No. Las agujas son muy finas — mucho más que las de una inyección — y se insertan superficialmente. Es habitual notar una presión leve o un hormigueo suave que desaparece en segundos. La mayoría de pacientes se quedan dormidos durante el reposo.</p>
+            <p>Las agujas son muy finas — mucho más que las de una inyección — y se insertan superficialmente. Es habitual notar una presión leve o un hormigueo suave que desaparece en segundos. Inclusive algunos pacientes se quedan dormidos durante el reposo.</p>
           </div>
         </div>
 
@@ -1203,7 +1200,7 @@
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq-answer" role="region">
-            <p>En Víctor Martín Centro, <strong style="color:var(--cream)">30€ por sesión</strong>, cualquier modalidad. La media en Vigo oscila entre 40€ y 70€. No hay cargo adicional por primera visita ni por combinar técnicas.</p>
+            <p>En Víctor Martín Centro, <strong style="color:var(--cream)">30€ por sesión</strong>, cualquier modalidad. No hay cargo adicional por primera visita ni por combinar técnicas.</p>
           </div>
         </div>
 
