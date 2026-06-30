@@ -632,6 +632,9 @@
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 5rem; align-items: center;
     }
+    .victor-titulo { grid-column: 1; grid-row: 1; }
+    .victor-photo-col { grid-column: 2; grid-row: 1 / 3; }
+    .victor-acupuntura-copy { grid-column: 1; grid-row: 2; }
     .victor-acupuntura-copy p {
       color: var(--cream-dim); font-size: 0.9rem; margin-bottom: 1.2rem; line-height: 1.8;
     }
@@ -786,6 +789,9 @@
       .modalidades-grid { grid-template-columns: 1fr; }
       #primera-sesion .inner { grid-template-columns: 1fr; gap: 2rem; }
       #victor-acupuntura .inner { grid-template-columns: 1fr; gap: 2rem; }
+      .victor-titulo,
+      .victor-photo-col,
+      .victor-acupuntura-copy { grid-column: 1; grid-row: auto; }
       .victor-photo::after { display: none; }
       .victor-photo-frame { max-width: 260px; margin: 0 auto; }
       .formacion-grid { grid-template-columns: 1fr; }
@@ -1222,9 +1228,21 @@
   <section>
     <div id="victor-acupuntura">
       <div class="inner">
-        <div class="victor-acupuntura-copy">
+        <div class="victor-titulo">
           <p class="section-label reveal">El terapeuta</p>
           <h2 class="section-title reveal reveal-d1">Víctor Martín,<br /><em style="font-style:italic;color:var(--gold);">acupunturista en Vigo</em></h2>
+        </div>
+        <div class="victor-photo-col">
+          <div class="victor-photo">
+            <div class="victor-photo-frame">
+              <picture>
+                <source srcset="/victor-v2.webp" type="image/webp" />
+                <img src="/victor.webp" alt="Víctor Martín — Acupunturista en Vigo" width="340" height="453" />
+              </picture>
+            </div>
+          </div>
+        </div>
+        <div class="victor-acupuntura-copy">
           <p class="highlight reveal reveal-d2">16 años de formación continua en el campo de la salud, desde el masaje hasta el psicoanálisis lacaniano.</p>
           <p class="reveal reveal-d2">
             Su camino empezó con las técnicas manuales y la osteopatía, siguió con una larga trayectoria en acupuntura, y culminó en el trabajo con la psique. No es un recorrido casual: es la base del enfoque integrador que lo diferencia de cualquier otro terapeuta en Vigo.
@@ -1239,16 +1257,6 @@
               <span class="formacion-item">Acupuntura Tung</span>
               <span class="formacion-item">Acupuntura Zonal</span>
               <span class="formacion-item">Cráneo Puntura</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="victor-photo">
-            <div class="victor-photo-frame">
-              <picture>
-                <source srcset="/victor-v2.webp" type="image/webp" />
-                <img src="/victor.webp" alt="Víctor Martín — Acupunturista en Vigo" width="340" height="453" />
-              </picture>
             </div>
           </div>
         </div>
