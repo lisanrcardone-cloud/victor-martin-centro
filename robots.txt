@@ -13,4 +13,4 @@ Allow: /
 User-agent: GoogleOther
 Allow: /
 
-Sitemap: https://victormartincentro.com/sitemap.xml
+Sitemap: https://www.victormartincentro.com/sitemap.xml
