@@ -374,6 +374,46 @@
     .hero-ctas .btn-primary,
     .hero-ctas .btn-ghost { min-width: 220px; }
 
+    /* ─── ALT CONTACT (llamada + tiempo de respuesta) ─── */
+    .alt-contact {
+      margin-top: 1.1rem;
+      font-size: 0.78rem;
+      color: var(--cream-dim);
+      text-align: center;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .alt-contact a {
+      color: var(--cream);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      white-space: nowrap;
+    }
+    .alt-contact a:hover { color: var(--gold); }
+
+    /* ─── GOOGLE RATING BADGE ─── */
+    .google-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 1.2rem;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--cream-dim);
+      flex-wrap: wrap;
+    }
+    .google-rating-stars { color: var(--gold); letter-spacing: 0.08em; font-size: 0.85rem; }
+    .google-rating-text strong { color: var(--cream); font-weight: 600; }
+    .google-rating a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-left: 0.1rem;
+    }
+    .google-rating a:hover { color: var(--cream); }
+
     /* ─── QUÉ ES ─── */
     #que-es {
       background: var(--bg-warm);
@@ -878,6 +918,10 @@
       </a>
       <a href="#que-es" class="btn-ghost">Qué es la acupuntura ↓</a>
     </div>
+
+    <p class="alt-contact">
+      O llamar al <a href="tel:+34685106677">685 10 66 77</a> · Víctor responde personalmente, normalmente el mismo día.
+    </p>
   </section>
 
   <div class="sep"><div class="sep-line"></div><span class="sep-icon">· · ·</span><div class="sep-line"></div></div>
@@ -1049,6 +1093,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Reservar por WhatsApp
         </a>
+        <p class="alt-contact">O llamar al <a href="tel:+34685106677">685 10 66 77</a></p>
       </div>
     </div>
   </section>
@@ -1122,6 +1167,11 @@
       <div style="margin-bottom:3.5rem;">
         <p class="section-label reveal">Lo que dicen</p>
         <h2 class="section-title reveal reveal-d1">Resultados reales</h2>
+        <div class="google-rating reveal">
+          <span class="google-rating-stars">★★★★★</span>
+          <span class="google-rating-text"><strong>4,6</strong> en Google · 22 reseñas</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=V%C3%ADctor+Mart%C3%ADn+Centro+Vigo" target="_blank" rel="noopener">Ver reseñas →</a>
+        </div>
       </div>
       <div class="testimonios-grid">
         <div class="testimonio reveal">
@@ -1221,7 +1271,7 @@
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq-answer" role="region">
-            <p>Por WhatsApp al <strong style="color:var(--cream)">685 10 66 77</strong>. Víctor responde personalmente para acordar día y hora. También podés hacer clic en cualquier botón de reserva de esta página.</p>
+            <p>Por WhatsApp o llamando al <strong style="color:var(--cream)">685 10 66 77</strong>. Víctor responde personalmente para acordar día y hora. También podés hacer clic en cualquier botón de reserva de esta página.</p>
           </div>
         </div>
 
@@ -1317,9 +1367,10 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.15a.75.75 0 0 0 .916.916l5.296-1.47A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.947 0-3.76-.524-5.318-1.434l-.38-.226-3.942 1.094 1.094-3.943-.225-.38A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Escribir a Víctor por WhatsApp
         </a>
+        <p class="alt-contact">O llamar al <a href="tel:+34685106677">685 10 66 77</a> · responde personalmente, normalmente el mismo día.</p>
       </div>
       <p class="cta-note reveal reveal-d3">
-        +34 685 106 677 &nbsp;·&nbsp; Rúa Padre Seixas, 38, entresuelo, Vigo &nbsp;·&nbsp; 30€/sesión
+        <a href="tel:+34685106677" style="color:inherit;text-decoration:none;">+34 685 106 677</a> &nbsp;·&nbsp; Rúa Padre Seixas, 38, entresuelo, Vigo &nbsp;·&nbsp; 30€/sesión
       </p>
     </div>
   </section>
@@ -1341,7 +1392,7 @@
         <span class="footer-info-label">Ubicación</span>
         <span>Rúa Padre Seixas, 38, entresuelo</span>
         <span>Vigo, Galicia</span>
-        <span>+34 685 106 677</span>
+        <span><a href="tel:+34685106677" style="color:inherit;text-decoration:none;">+34 685 106 677</a></span>
       </div>
       <div class="footer-info-block">
         <span class="footer-info-label">Horario</span>
